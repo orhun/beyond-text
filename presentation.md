@@ -858,6 +858,14 @@ Ratty includes an optional **Model Context Protocol (MCP)** server
 
 <!-- end_slide -->
 
+### Ratty MCP in action
+
+![image:width:100%](assets/ratty-mcp-demo.gif)
+
+<!-- no_footer -->
+
+<!-- end_slide -->
+
 ```text
 MCP client (e.g. Codex)
         | starts ratty-mcp (MCP over stdin/stdout)
