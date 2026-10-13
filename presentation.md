@@ -41,9 +41,11 @@ This is where I spend a lot of my day.
 
 # What is a terminal?
 
-![image:width:20%](assets/rat-cup.gif)
+![image:width:30%](assets/rat-cup.gif)
 
 <!-- alignment: center -->
+
+<!-- pause -->
 
 You tell me!
 
@@ -56,12 +58,12 @@ You tell me!
 ![image:width:90%](assets/cursor.gif)
 
 ```svgbob
-   You                  Terminal              Shell
-    │                       │                   │
-    ├── type command ──────▶│──────────────────▶│
-    │                       │                   │
-    │◀── see response ──────│◀──────────────────│
-    │                       │                   │
+   You                  Terminal            Shell
+    │                       │                 │
+    ├── type command ──────▶│────────────────▶│
+    │                       │                 │
+    │◀── see response ──────│◀────────────────│
+    │                       │                 │
 ```
 
 <!-- no_footer -->
@@ -195,7 +197,7 @@ And each Ratatui demo is also embedded in the slides.
 
 # 3rd party widgets too!
 
-![](assets/tui-candlestick.gif)
+![image:width:100%](assets/tui-candlestick.gif)
 
 <!-- alignment: center -->
 
@@ -312,6 +314,8 @@ _But wait! We are not limited to terminal!_
 
 Build websites using Ratatui and WebAssembly!
 
+![image:width:35%](assets/ratzilla-logo.gif)
+
 ```bash +exec
 handlr open https://github.com/ratatui/ratzilla
 ```
@@ -334,13 +338,13 @@ Embedded graphics backend for Ratatui!
 
 <!-- end_slide -->
 
-![](assets/maratui.jpg)
+![image:width:100%](assets/maratui.jpg)
 
 <!-- no_footer -->
 
 <!-- end_slide -->
 
-![](assets/maratui-2.png)
+![image:width:100%](assets/maratui-2.png)
 
 <!-- alignment: center -->
 
@@ -352,7 +356,7 @@ Embedded graphics backend for Ratatui!
 
 <!-- new_lines: 2 -->
 
-![](assets/ratatui-psp.png)
+![image:width:100%](assets/ratatui-psp.png)
 
 <!-- alignment: center -->
 
@@ -438,11 +442,9 @@ Terry Davis
 
 <!-- end_slide -->
 
-_"God said I made His temple."_
-
-<!-- pause -->
-
 # TempleOS
+
+_"God said I made His temple."_
 
 - A 64-bit operating system
 - Designed to be a modern-day temple for God
@@ -458,15 +460,13 @@ QEMU_AUDIO_DRV= qemu-system-x86_64 -m 1G -enable-kvm -drive file=/home/orhun/tem
 
 <!-- end_slide -->
 
-_"f*cking sprites, command-line... f*cking... f\*ck yeah"._
-
-<!-- pause -->
-
 ## Sprites on the command-line
 
-```bash +exec
-handlr open "https://www.youtube.com/watch?t=1040&v=urO4RTEsPBg&feature=youtu.be"
-```
+![image:width:90%](assets/sprites-commandline.gif)
+
+<!-- alignment: center -->
+
+_"f*cking sprites, command-line... f*cking... f\*ck yeah"._
 
 <!-- pause -->
 
@@ -482,6 +482,8 @@ to think about terminals differently.</span>
 <!-- no_footer -->
 
 # Meet @gold-silver-copper 🦊
+
+<!-- pause -->
 
 ## soft_ratatui
 
@@ -499,16 +501,21 @@ mpv assets/soft-ratatui.avif >/dev/null
 
 # Terminal Collective
 
-A community of terminal enthusiasts.  
-`https://terminalcollective.org`
+A community of terminal enthusiasts.
 
 And we created a cool animated terminal logo for our podcast!
 
 ![image:width:100%](assets/rotating-terminal.gif)
 
+<!-- alignment: center -->
+
+`https://terminalcollective.org`
+
 <!-- no_footer -->
 
 <!-- end_slide -->
+
+<!-- new_lines: 3 -->
 
 ```svgbob
 Render Pipeline
@@ -540,7 +547,7 @@ Render Pipeline
 
 # Initial experiments
 
-![image:width:60%](assets/cursed-rat-game.gif)
+![image:width:80%](assets/cursed-rat-game.gif)
 
 <!-- no_footer -->
 
@@ -554,11 +561,13 @@ Render Pipeline
 
 <!-- end_slide -->
 
-We need to draw the Ratatui terminal buffer into an image that Bevy can use as a texture.
+The terminal still starts as rows and columns of cells.
+
+Ratty turns that grid into a surface Bevy can place in a 3D scene.
 
 <!-- pause -->
 
-![](assets/parley-ratatui.gif)
+![image:width:100%](assets/parley-ratatui.gif)
 
 <!-- alignment: center -->
 
@@ -570,17 +579,28 @@ Does glyph shaping and uses Vello for GPU rasterization!
 
 <!-- end_slide -->
 
-Initialize Ratatui with the Parley renderer:
+## One cell's journey
 
-```rust +line_numbers
-let backend = ParleyBackend::new(cols, rows);
-let mut terminal = Terminal::new(backend)?;
-let renderer = TerminalRenderer::new(font_options, theme);
+```svgbob
+ Grid        Changed cell      GPU surface
+┌───────┐     ┌───┐          ┌───────────┐
+│ A │ B │ ─▶  │ B │ ───────▶ │ glyph +   │
+│ C │ D │     └───┘          │ background│
+└───────┘                    └───────────┘
 ```
 
-<!-- pause -->
+- The terminal sends text and commands.
+- Ratatui keeps the screen as rows and columns of cells.
+- Bevy draws each changed cell onto the terminal surface.
+- Ratty places that surface in its 3D scene.
 
-Render the terminal screen and sync the cursor cell:
+![image:width:100%](assets/rat-ski.gif)
+
+<!-- no_footer -->
+
+<!-- end_slide -->
+
+Render the terminal screen and sync its cursor cell:
 
 ```rust +line_numbers
 let screen = runtime.parser.screen();
@@ -599,7 +619,7 @@ terminal.draw(|frame| {
 
 <!-- end_slide -->
 
-Map the cursor cell into Bevy coordinates:
+Map the cursor's row and column to a position on the terminal surface:
 
 ```rust +line_numbers
 let cell_width = viewport_size.x / cols as f32;
@@ -614,7 +634,7 @@ let y = viewport_size.y * 0.5 - (row as f32 + 0.5) * cell_height;
 
 <!-- end_slide -->
 
-Spawn the rat cursor:
+## Then make the cursor 3D
 
 ```rust +line_numbers
 commands.spawn((
@@ -668,31 +688,6 @@ You can configure the cursor as well!
 
 <!-- end_slide -->
 
-## From PTY output to a 3D scene
-
-```svgbob
-PTY output
-   │ ANSI / VT sequences
-   ▼
- fux-vt ── terminal state: cells, cursor, styles
-   │
-   ▼
- Ratatui buffer (CPU)
-   │ changed cells
-   ▼
- Bevy text renderer
-   │ glyph + background quads
-   ▼
- GPU-resident terminal surface
-   │
-   ▼
- Bevy scene: camera, models, effects
-```
-
-<!-- no_footer -->
-
-<!-- end_slide -->
-
 Sacrificing 300MB of RAM...
 might as well make it worth it.
 
@@ -732,7 +727,7 @@ _TempleOS document demo of Ratty_
 
 <!-- alignment: center -->
 
-How do we communicate that to the terminal though? 🐀
+<span style="color: #ffd970">How do we communicate that to the terminal though? 🐀</span>
 
 <!-- no_footer -->
 
