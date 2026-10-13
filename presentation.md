@@ -14,7 +14,8 @@ theme:
 
 <!-- alignment: center -->
 
-<span style="color: #ffd970">**Beyond Text: Building a 3D terminal emulator in Rust**</span>
+<span style="color: #ffd970">**Beyond Text:**</span>  
+<span style="color: #ffd970">**Building a 3D terminal emulator in Rust**</span>
 
 ---
 
