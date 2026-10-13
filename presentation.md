@@ -355,6 +355,20 @@ Embedded graphics backend for Ratatui!
 
 <!-- end_slide -->
 
+## Ratatuefi
+
+Ratatui can run as an EFI app, before an operating system starts.
+
+![image:width:100%](assets/ratatuefi.gif)
+
+<!-- alignment: center -->
+
+[](https://github.com/sermuns/ratatuefi)
+
+<!-- no_footer -->
+
+<!-- end_slide -->
+
 <!-- new_lines: 2 -->
 
 ![image:width:100%](assets/ratatui-psp.png)
