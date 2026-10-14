@@ -901,13 +901,32 @@ Let’s give the terminal a new shape.
 
 <!-- end_slide -->
 
-#### Why?
+### Coming soon: `Molerat` 🦫
 
-Why not?
+<!-- pause    -->
 
-Ratatui & Rust make things possible.
+A semantic UI layer for Rust terminal applications.
 
-We're definitely in an age of _"because we could."_
+![image:width:100%](assets/molerat-knife.gif)
+
+<!-- alignment: center -->
+
+Your Ratatui applications will support  
+`agentic control` and `screen readers`!
+
+<!-- no_footer -->
+
+<!-- end_slide -->
+
+### Why?
+
+<!-- pause -->
+
+<span style="color: #ffd970">Why not?</span>
+
+Not everything is commercial value: feel free to <span style="color: #ffd970">experiment</span>.
+
+We're definitely in an age of <span style="color: #ffd970">_"because we can"_</span>.
 
 ![image:width:100%](assets/rat-thumb.gif)
 
