@@ -5,7 +5,7 @@ theme:
     footer:
       style: template
       left: "@orhun.dev"
-      right: "bcnrust"
+      right: "RustLab 2026"
 ---
 
 <!-- new_lines: 2 -->
