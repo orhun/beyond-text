@@ -578,7 +578,7 @@ Render Pipeline
 
 The terminal still starts as rows and columns of cells.
 
-Ratty turns that grid into a surface Bevy can place in a 3D scene.
+That grid becomes a surface Bevy can place in a 3D scene.
 
 <!-- pause -->
 
@@ -607,7 +607,7 @@ Does glyph shaping and uses Vello for GPU rasterization!
 - The terminal sends text and commands.
 - Ratatui keeps the screen as rows and columns of cells.
 - Bevy draws each changed cell onto the terminal surface.
-- Ratty places that surface in its 3D scene.
+- The 3D scene displays that surface alongside the camera, models, and effects.
 
 ![image:width:100%](assets/rat-ski.gif)
 
@@ -698,6 +698,20 @@ You can configure the cursor as well!
 <!-- pause -->
 
 ![](assets/pasha-2.gif)
+
+<!-- no_footer -->
+
+<!-- end_slide -->
+
+### Introducing Ratty 🐀
+
+![image:width:45%](assets/ratty-logo.gif)
+
+<!-- alignment: center -->
+
+<span style="color: #ffd970">A 3D terminal emulator!</span>
+
+[](https://github.com/orhun/ratty)
 
 <!-- no_footer -->
 
