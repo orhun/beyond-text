@@ -2,8 +2,6 @@
 
 Presentation materials for **Beyond Text: Building a 3D terminal emulator in Rust**.
 
-![](assets/event-flyer.jpg)
-
 ## Presenting
 
 Install [presenterm](https://github.com/mfontanini/presenterm) and [WezTerm](https://wezfurlong.org/wezterm/), then run:

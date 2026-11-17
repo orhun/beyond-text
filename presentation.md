@@ -705,11 +705,13 @@ You can configure the cursor as well!
 
 ### Introducing Ratty 🐀
 
-![image:width:45%](assets/ratty-logo.gif)
+![image:width:30%](assets/ratty-logo.gif)
 
 <!-- alignment: center -->
 
 <span style="color: #ffd970">A 3D terminal emulator!</span>
+
+![image:width:40%](assets/ratty-qr.png)
 
 [](https://github.com/orhun/ratty)
 
@@ -882,14 +884,6 @@ Ratty includes an optional **Model Context Protocol (MCP)** server
 
 <!-- end_slide -->
 
-### Ratty MCP in action
-
-![image:width:100%](assets/ratty-mcp-demo.gif)
-
-<!-- no_footer -->
-
-<!-- end_slide -->
-
 ```text
 MCP client (e.g. Codex)
         | starts ratty-mcp (MCP over stdin/stdout)
@@ -915,18 +909,32 @@ Let’s give the terminal a new shape.
 
 <!-- end_slide -->
 
-### Coming soon: `Molerat` 🦫
+### Ratty MCP in action
+
+![image:width:100%](assets/ratty-mcp-demo.gif)
+
+<!-- no_footer -->
+
+<!-- end_slide -->
+
+## Coming soon: `Molerat` 🦫
+
+![image:width:30%](assets/molerat-logo.png)
 
 <!-- pause    -->
 
-A semantic UI layer for Rust terminal applications.
+<!-- alignment: center -->
 
-![image:width:100%](assets/molerat-knife.gif)
+An accessibility & agentic layer for Rust UI applications!
 
 <!-- alignment: center -->
 
 Your Ratatui applications will support  
 `agentic control` and `screen readers`!
+
+![image:width:30%](assets/molerat-qr.png)
+
+[](https://github.com/orhun/molerat)
 
 <!-- no_footer -->
 
@@ -962,7 +970,7 @@ RIP King Terry 🫡
 
 <!-- end_slide -->
 
-![image:width:40%](assets/orhun-avatar.png)
+![image:width:50%](assets/orhun-avatar.png)
 
 <!-- alignment: center -->
 
